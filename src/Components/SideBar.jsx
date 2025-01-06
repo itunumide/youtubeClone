@@ -9,22 +9,23 @@ import blogs from "../assets/blogs.png";
 import news from "../assets/news.png";
 import SideBarList from "./Reuseable/SideBarList";
 
-const SideBar = ({sidebar}) => {
+const SideBar = ({sidebar,category,setCategory}) => {
   return (
     <div className={`${sidebar ? "" : "w-[5%]"} fixed top-0 pl-[2%] pt-[4rem] h-full w-[15%] bg-white `}>
       <div className="">
         <div className="">
-          <SideBarList sidebar={sidebar} image={home} text={"Home"} />
-          <SideBarList sidebar={sidebar} image={game_icon} text={"Gaming"} />
-          <SideBarList sidebar={sidebar} image={automobiles} text={"Automobiles"} />
-          <SideBarList sidebar={sidebar} image={sports} text={"Sports"} />
-          <SideBarList sidebar={sidebar} image={entertainment} text={"Entertainment"} />
-          <SideBarList sidebar={sidebar} image={tech} text={"Technology"} />
-          <SideBarList sidebar={sidebar} image={music} text={"Music"} />
-          <SideBarList sidebar={sidebar} image={blogs} text={"Blogs"} />
-          <SideBarList sidebar={sidebar} image={news} text={"News"} />
-          <hr className={sidebar ?"border-0 h-[1px] bg-[#ccc] w-[85%]":"w-[50%] mb-[1.6rem]" }/>
+          <SideBarList sidebar={sidebar} activeCategory={category === 0}  onClick={()=>setCategory(0)} image={home} text={"Home"} />
+          <SideBarList sidebar={sidebar} activeCategory={category === 20}  onClick={()=>setCategory(20)} image={game_icon} text={"Gaming"} />
+          <SideBarList sidebar={sidebar} activeCategory={category === 2}  onClick={()=>setCategory(2)} image={automobiles} text={"Automobiles"} />
+          <SideBarList sidebar={sidebar} activeCategory={category === 17}  onClick={()=>setCategory(17)} image={sports} text={"Sports"} />
+          <SideBarList sidebar={sidebar} activeCategory={category === 24}  onClick={()=>setCategory(24)} image={entertainment} text={"Entertainment"} />
+          <SideBarList sidebar={sidebar} activeCategory={category === 28}  onClick={()=>setCategory(28)} image={tech} text={"Technology"} />
+          <SideBarList sidebar={sidebar} activeCategory={category === 10}  onClick={()=>setCategory(10)} image={music} text={"Music"} />
+          <SideBarList sidebar={sidebar} activeCategory={category === 22}  onClick={()=>setCategory(22)} image={blogs} text={"Blogs"} />
+          <SideBarList sidebar={sidebar} activeCategory={category === 25}  onClick={()=>setCategory(25)} image={news} text={"News"} />
+          
         </div>
+        <hr className={sidebar ?"border-0 h-[1px] bg-[#ccc] w-[85%]":"w-[50%] mb-[1.6rem]" }/>
         <div className="">
           <h3 className={sidebar ? "text-[.81rem] text-[#5a5a5a] my-[1.25rem]" : "hidden"}>Subscribed</h3>
           <div className="">

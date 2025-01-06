@@ -7,7 +7,7 @@ import Home from "./Pages/Home";
 const App = () => {
   const [sidebar, setSidebar] = useState(true);
   return (
-    <div className="">
+    <div className="text-[#555]">
       <BrowserRouter>
         <Navbar setSidebar={setSidebar}/>
         <Routes>
