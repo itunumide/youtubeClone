@@ -7,7 +7,7 @@ const Recommended = ({ categoryId }) => {
   const {data, loading, error} = useGetApi(
     `videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&regionCode=US&videoCategoryId=${categoryId}`
   );
- console.log(data);
+ 
  
   if (loading) return <h1 className="text-center">Loading</h1>;
   if (error) return <h1>An error has occurred</h1>;

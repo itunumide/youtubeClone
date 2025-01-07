@@ -7,9 +7,8 @@ import useGetApi from "../Hooks/useGetApi";
 import { valueConverter } from "../data";
 import { useParams } from "react-router-dom";
 
-
 const PlayVideo = () => {
-  const {videoId} = useParams()
+  const { videoId } = useParams();
 
   const { data, loading, error } = useGetApi(
     `videos?part=snippet%2CcontentDetails%2Cstatistics&id=${videoId}`
@@ -39,8 +38,6 @@ const PlayVideo = () => {
     return <h1 className="text-center">Loading...</h1>;
   if (error || channelError || commentError)
     return <h1 className="text-center">An error has occurred</h1>;
-
-  console.log(commentData);
 
   const videoData = data && data[0];
   const channelInfo = channelData && channelData[0];
@@ -132,8 +129,12 @@ const PlayVideo = () => {
                 </h3>
                 <p>
                   {item.snippet.topLevelComment.snippet.textDisplay.length > 100
-                    ? `${item.snippet.topLevelComment.snippet.textDisplay.slice(0, 250)}...`
-                    : item.snippet.topLevelComment.snippet.textDisplay || "Description here"}
+                    ? `${item.snippet.topLevelComment.snippet.textDisplay.slice(
+                        0,
+                        250
+                      )}...`
+                    : item.snippet.topLevelComment.snippet.textDisplay ||
+                      "Description here"}
                 </p>
                 <div className="flex-div mx-o my-2 text-[.92rem] ">
                   <img
