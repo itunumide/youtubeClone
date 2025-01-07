@@ -4,6 +4,7 @@ import searchIcon from "../assets/search.png";
 import uploadIcon from "../assets/upload.png";
 import moreIcon from "../assets/more.png";
 import notificationIcon from "../assets/notification.png";
+import { Link } from "react-router-dom";
 
 const NavBar = ({ setSidebar }) => {
   return (
@@ -17,7 +18,9 @@ const NavBar = ({ setSidebar }) => {
           }}
           alt="menu icon"
         />
-        <img className="w-[8.125rem] " src={logo} alt="logo" />
+        <Link to={"/"}>
+          <img className="w-[8.125rem] " src={logo} alt="logo" />
+        </Link>
       </section>
       <section className="flex-div">
         <div className="flex-div border rounded-[1.6rem] py-[.5rem] px-[.75rem] ">
