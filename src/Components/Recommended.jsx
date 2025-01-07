@@ -13,7 +13,7 @@ const Recommended = ({ categoryId }) => {
   if (error) return <h1>An error has occurred</h1>;
 
   return (
-    <div className="flex-[0_0_30%]">
+    <div className="flex-[0_0_100%] md:flex-[0_0_30%]">
       {data.map((item,index)=>{
         return(<Link to={`/video/${item.snippet.categoryId}/${item.id}`} key={index} className="flex justify-between mb-[.5rem] ">
           <img src={item.snippet.thumbnails.medium.url} alt="" className="flex-[0_0_49%] w-[50%] " />

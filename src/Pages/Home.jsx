@@ -10,7 +10,7 @@ const Home = ({ sidebar }) => {
       <div
         className={`${
           sidebar ? "" : "pl-[7%]"
-        } bg-[#f9f9f9] pl-[17%] pr-[2%] py-[1.25rem] `}
+        } bg-[#f9f9f9] px-[1rem] md:pl-[17%] md:pr-[2%] py-[1.25rem] `}
       >
         <Feed category={category} />
       </div>

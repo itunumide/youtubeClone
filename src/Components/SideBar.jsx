@@ -11,7 +11,7 @@ import SideBarList from "./Reuseable/SideBarList";
 
 const SideBar = ({sidebar,category,setCategory}) => {
   return (
-    <div className={`${sidebar ? "" : "w-[5%]"} fixed top-0 pl-[2%] pt-[4rem] h-full w-[15%] bg-white `}>
+    <div className={`${sidebar ? "" : "md:w-[5%]"} hidden inline-flex fixed top-0 pl-[2%] pt-[4rem] h-full w-[15%] bg-white `}>
       <div className="">
         <div className="">
           <SideBarList sidebar={sidebar} activeCategory={category === 0}  onClick={()=>setCategory(0)} image={home} text={"Home"} />

@@ -8,7 +8,6 @@ const useGetApi = (endpoint) => {
   const [error, setError] = useState(null);
 
   const url = `https://youtube.googleapis.com/youtube/v3/${endpoint}&key=${API_KEY}`;
-  const mem =`https://youtube.googleapis.com/youtube/v3/snippet%2CcontentDetails%2Cstatistics&id=UC_x5XG1OV2P6uZZ5FSM9Ttw`
   
   
   useEffect(() => {
@@ -22,6 +21,7 @@ const useGetApi = (endpoint) => {
           console.log(result.items);
         } else {
           setError("No data received");
+          setLoading(false)
         }
       } catch (error) {
         console.error(error);

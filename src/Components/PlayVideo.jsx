@@ -47,11 +47,11 @@ const PlayVideo = () => {
   const commentInfo = commentData;
 
   return (
-    <div className="flex-[0_0_69%]">
+    <div className="flex-[0_0_100%] md:flex-[0_0_69%]">
       <iframe
         src={`https://www.youtube.com/embed/${videoId}?autoplay=1`}
         frameBorder="0"
-        className="w-full h-[37vw]"
+        className="w-full h-[50vw] md:h-[37vw]"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         referrerPolicy="strict-origin-when-cross-origin"
         allowFullScreen
@@ -65,18 +65,18 @@ const PlayVideo = () => {
           {moment(videoData?.snippet?.publishedAt).fromNow()}
         </p>
         <div>
-          <span className="ml-[.95rem] inline-flex items-center">
+          <span className="ml-0 mr-[.9375rem] md:mr-0 mt-[.9375rem] md:mt-0 md:ml-[.95rem] inline-flex items-center">
             <img src={like} alt="" className="w-[1.25rem] mr-[.5rem]" />
             {valueConverter(videoData?.statistics?.likeCount || 0)}
           </span>
-          <span className="ml-[.95rem] inline-flex items-center">
+          <span className="ml-0 mr-[.9375rem] md:mr-0 mt-[.9375rem] md:mt-0 md:ml-[.95rem] inline-flex items-center">
             <img src={dislike} alt="" className="w-[1.25rem] mr-[.5rem]" />
           </span>
-          <span className="ml-[.95rem] inline-flex items-center">
+          <span className="ml-0 mr-[.9375rem] md:mr-0 mt-[.9375rem] md:mt-0 md:ml-[.95rem] inline-flex items-center">
             <img src={share} alt="" className="w-[1.25rem] mr-[.5rem]" />
             Share
           </span>
-          <span className="ml-[.95rem] inline-flex items-center">
+          <span className="ml-0 mr-[.9375rem] md:mr-0 mt-[.9375rem] md:mt-0 md:ml-[.95rem] inline-flex items-center">
             <img src={save} alt="" className="w-[1.25rem] mr-[.5rem]" />
             Save
           </span>
@@ -102,7 +102,7 @@ const PlayVideo = () => {
           Subscribe
         </button>
       </div>
-      <div className="pl-[3.45rem] mx-[0] mb-[.95rem]">
+      <div className="pl-0 md:pl-[3.45rem] mx-[0] mb-[.95rem]">
         <p className="text-[#5a5a5a] text-[.813rem] mb-[.3125rem]">
           {videoData?.snippet?.description.length > 250
             ? `${videoData?.snippet?.description.slice(0, 250)}...`
