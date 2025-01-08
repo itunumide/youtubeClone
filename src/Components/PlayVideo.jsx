@@ -44,11 +44,11 @@ const PlayVideo = () => {
   const commentInfo = commentData;
 
   return (
-    <div className="flex-[0_0_100%] md:flex-[0_0_69%]">
+    <div className="flex-[0_0_98%] md:flex-[0_0_68%]">
       <iframe
         src={`https://www.youtube.com/embed/${videoId}?autoplay=1`}
         frameBorder="0"
-        className="w-full h-[50vw] md:h-[37vw]"
+        className="w-full h-[50vw] rounded-md md:h-[37vw]"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         referrerPolicy="strict-origin-when-cross-origin"
         allowFullScreen
@@ -62,19 +62,19 @@ const PlayVideo = () => {
           {moment(videoData?.snippet?.publishedAt).fromNow()}
         </p>
         <div>
-          <span className="ml-0 mr-[.9375rem] md:mr-0 mt-[.9375rem] md:mt-0 md:ml-[.95rem] inline-flex items-center">
-            <img src={like} alt="" className="w-[1.25rem] mr-[.5rem]" />
+          <span className="group ml-0 mr-[.9375rem] md:mr-0 mt-[.9375rem] md:mt-0 md:ml-[.95rem] inline-flex items-center">
+            <img src={like} alt="" className="group-hover:scale-125 w-[1.25rem]  mr-[.5rem]" />
             {valueConverter(videoData?.statistics?.likeCount || 0)}
           </span>
-          <span className="ml-0 mr-[.9375rem] md:mr-0 mt-[.9375rem] md:mt-0 md:ml-[.95rem] inline-flex items-center">
-            <img src={dislike} alt="" className="w-[1.25rem] mr-[.5rem]" />
+          <span className="group ml-0 mr-[.9375rem] md:mr-0 mt-[.9375rem] md:mt-0 md:ml-[.95rem] inline-flex items-center">
+            <img src={dislike} alt="" className="group-hover:scale-125 w-[1.25rem] mr-[.5rem]" />
           </span>
-          <span className="ml-0 mr-[.9375rem] md:mr-0 mt-[.9375rem] md:mt-0 md:ml-[.95rem] inline-flex items-center">
-            <img src={share} alt="" className="w-[1.25rem] mr-[.5rem]" />
+          <span className="group ml-0 mr-[.9375rem] md:mr-0 mt-[.9375rem] md:mt-0 md:ml-[.95rem] inline-flex items-center">
+            <img src={share} alt="" className="group-hover:scale-125 w-[1.25rem] mr-[.5rem]" />
             Share
           </span>
-          <span className="ml-0 mr-[.9375rem] md:mr-0 mt-[.9375rem] md:mt-0 md:ml-[.95rem] inline-flex items-center">
-            <img src={save} alt="" className="w-[1.25rem] mr-[.5rem]" />
+          <span className="group ml-0 mr-[.9375rem] md:mr-0 mt-[.9375rem] md:mt-0 md:ml-[.95rem] inline-flex items-center">
+            <img src={save} alt="" className="group-hover:scale-125 w-[1.25rem] mr-[.5rem]" />
             Save
           </span>
         </div>
@@ -86,8 +86,8 @@ const PlayVideo = () => {
           alt="profile"
           className="w-10 rounded-[50%] mr-[.94rem]"
         />
-        <div className="flex-1 leading-[1.125rem]">
-          <p className="text-[#000] font-semibold text-[1.125rem]">
+        <div className="flex-1 leading-[1.4rem]">
+          <p className="text-[#000] mb-2 font-semibold text-[1.125rem]">
             {videoData?.snippet?.channelTitle || "Channel Name"}
           </p>
           <span className="text-[.8125rem] text-[#5a5a5a]">
@@ -95,12 +95,12 @@ const PlayVideo = () => {
             Subcribers
           </span>
         </div>
-        <button className="bg-red-500 text-white px-[1.9rem] py-[.5rem] border-none outline-none rounded-md cursor-pointer">
+        <button className="bg-red-500 text-white px-[1.9rem] py-[.4rem] hover:scale-110 hover:bg-red-600 border-none outline-none rounded-md cursor-pointer">
           Subscribe
         </button>
       </div>
       <div className="pl-0 md:pl-[3.45rem] mx-[0] mb-[.95rem]">
-        <p className="text-[#5a5a5a] text-[.813rem] mb-[.3125rem]">
+        <p className="text-[#5a5a5a] text-[.91rem] mt-[.3rem] mb-[.3125rem]">
           {videoData?.snippet?.description.length > 250
             ? `${videoData?.snippet?.description.slice(0, 250)}...`
             : videoData?.snippet?.description || "Description here"}
@@ -112,11 +112,11 @@ const PlayVideo = () => {
 
         {commentInfo.map((item, index) => {
           return (
-            <div className="flex-div mx-0 my-[1.25rem] " key={index}>
+            <div className="flex-div mx-0 my-[1.25rem] w-full " key={index}>
               <img
                 src={item.snippet.topLevelComment.snippet.authorProfileImageUrl}
                 alt=""
-                className="w-[2.125rem] rounded-[50%] mr-[.94rem]  "
+                className="w-[2.125rem]  rounded-[50%] mr-[.94rem]  "
               />
               <div className="">
                 <h3 className="text-[.9rem] mb-[.125rem] ">
@@ -127,7 +127,7 @@ const PlayVideo = () => {
                     ).fromNow()}
                   </span>
                 </h3>
-                <p>
+                <p className="max-w-[90%]">
                   {item.snippet.topLevelComment.snippet.textDisplay.length > 100
                     ? `${item.snippet.topLevelComment.snippet.textDisplay.slice(
                         0,
@@ -138,17 +138,17 @@ const PlayVideo = () => {
                 </p>
                 <div className="flex-div mx-o my-2 text-[.92rem] ">
                   <img
-                    className="rounded-none w-[1.25rem] mr-[.3125rem] "
+                    className="rounded-none scale-item w-[1.25rem] mr-[.3125rem] "
                     src={like}
                     alt=""
                   />
                   <span className="mr-[1.25rem] text-[5a5a5a] ">
                     {valueConverter(
                       item?.snippet?.topLevelComment?.snippet.likeCount
-                    ) || 3}
+                    )}
                   </span>
                   <img
-                    className="rounded-none w-[1.25rem] mr-[.3125rem] "
+                    className="rounded-none scale-item w-[1.25rem] mr-[.3125rem] "
                     src={dislike}
                     alt=""
                   />

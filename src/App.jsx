@@ -6,12 +6,17 @@ import Home from "./Pages/Home";
 
 const App = () => {
   const [sidebar, setSidebar] = useState(true);
+  const [searchTerm, setSearchTerm] = useState(""); // State to track search term
+
+  const handleSearch = (term) => {
+    setSearchTerm(term); // Update the search term
+  };
   return (
     <div className="text-[#555]">
       <BrowserRouter>
-        <Navbar setSidebar={setSidebar}/>
+        <Navbar setSidebar={setSidebar} onSearch={handleSearch}/>
         <Routes>
-          <Route path="/" element={<Home sidebar={sidebar}/>} />
+          <Route path="/" element={<Home sidebar={sidebar} searchTerm={searchTerm}/>} />
           <Route path="/video/:categoryId/:videoId" element={<Video />} />
         </Routes>
       </BrowserRouter>

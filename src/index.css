@@ -23,3 +23,10 @@ img {
   display: flex;
   align-items: center;
 }
+.scale-item {
+  transition: transform 0.3s ease; /* Smooth scaling transition */
+}
+
+.scale-item:hover {
+  transform: scale(1.2); /* Scale the item to 1.2x its original size */
+}
