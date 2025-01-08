@@ -41,7 +41,7 @@ const NavBar = ({ setSidebar }) => {
             "https://i.pinimg.com/736x/65/04/29/65042906985241278be17a79a7574652.jpg"
           }
           alt=""
-          className="object-cover rounded-[50%] w-[2.2rem] mr-[1.6rem]"
+          className="object-cover rounded-[50%] w-[2.2rem] mr-[1rem] md:mr-[1.6rem]"
         />
       </section>
     </nav>
