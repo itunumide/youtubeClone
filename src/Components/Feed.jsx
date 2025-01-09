@@ -14,6 +14,7 @@ const Feed = ({ category, searchTerm }) => {
     : `videos?part=snippet,contentDetails,statistics&chart=mostPopular&maxResults=50&regionCode=US&videoCategoryId=${category}`;
 
   const { data, loading, error } = useGetApi(apiEndpoint);
+  const[loadingSearch, setLoadingSearch] =useState(false)
   const [videosWithDetails, setVideosWithDetails] = useState([]);
 
   
@@ -21,6 +22,7 @@ const Feed = ({ category, searchTerm }) => {
     if (data) {
       // Create a function to fetch video details using axios
       const fetchVideoDetails = async () => {
+        setLoadingSearch(true)
         try {
           const videosWithDetails = await Promise.all(
             data.map(async (item) => {
@@ -51,6 +53,9 @@ const Feed = ({ category, searchTerm }) => {
         } catch (error) {
           console.error("Error fetching video details:", error);
         }
+        finally{
+          setLoadingSearch(false)
+        }
       };
 
       fetchVideoDetails();
@@ -58,7 +63,7 @@ const Feed = ({ category, searchTerm }) => {
   }, [data]);
 
 
-  if (loading) return <h1 className="text-center">Loading</h1>;
+  if (loading || loadingSearch) return <h1 className="text-center">Loading</h1>;
   if (error) return <h1>An error has occurred</h1>;
 
   return (
